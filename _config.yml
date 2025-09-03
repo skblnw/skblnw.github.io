@@ -1,1 +1,211 @@
-remote_theme: "jekyll/minima@1e8a445"
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve`. If you change this file, please restart the server process.
+
+# Theme Settings
+#
+# Review documentation to determine if you should use `theme` or `remote_theme`
+# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
+
+remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Site Settings
+locale                   : "en-US"
+title                    : "CC Lab @ XJTLU"
+title_separator          : "-"
+subtitle                 : "Structural Bioinformatics & Molecular Dynamics"
+name                     : "CC Lab"
+description              : "CC Lab @ XJTLU - Structural bioinformatics and molecular dynamics laboratory"
+url                      : "https://skblnw.github.io"
+baseurl                  : ""
+repository               : "skblnw/skblnw.github.io"
+teaser                   : "/assets/images/lab-default.jpg"
+logo                     : # path of logo image to display in the masthead
+masthead_title           : "CC Lab"
+breadcrumbs              : true # true, false (default)
+words_per_minute         : 200
+
+# Social Sharing
+twitter:
+  username               : 
+facebook:
+  username               : 
+  app_id                 :
+  publisher              :
+og_image                 : "/assets/images/lab-logo.png"
+social:
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+
+# Site Author
+author:
+  name             : "Kevin Chan"
+  avatar           : "/assets/images/people/kevin-chan.jpg"
+  bio              : "Principal Investigator, CC Lab @ XJTLU"
+  location         : "Suzhou, China"
+  email            : "Chun.Chan@xjtlu.edu.cn"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:Chun.Chan@xjtlu.edu.cn"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://skblnw.github.io"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/skblnw"
+
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/skblnw"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:Chun.Chan@xjtlu.edu.cn"
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - ["_pages"]
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README
+  - tmp
+  - /docs # ignore Minimal Mistakes /docs
+  - /test # ignore Minimal Mistakes /test
+  - STUDENT_ZONE
+  - PI_ONLY
+  - WORKFLOWS
+  - utils
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+# Archives
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+# Collections
+collections_dir: collections
+collections:
+  people:
+    output: true
+    permalink: /:collection/:path/
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+  # _people
+  - scope:
+      path: ""
+      type: people
+    values:
+      layout: single
+      author_profile: false
+      share: true
