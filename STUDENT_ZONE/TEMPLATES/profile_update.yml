@@ -1,0 +1,46 @@
+# Profile Update Template for Students
+# ONLY edit fields marked as [STUDENT-EDITABLE]
+# DO NOT change your name, email, or title - ask PI to update these
+
+# Your unique ID (DO NOT CHANGE)
+firstname_lastname:  # [DO NOT CHANGE THIS LINE]
+
+  # [STUDENT-EDITABLE] Your current research description
+  bio_long: >
+    [REPLACE: Write 2-3 paragraphs about your research]
+    
+    Paragraph 1: Your background and how you joined the lab.
+    
+    Paragraph 2: Your current research project and methods.
+    
+    Paragraph 3: Your research interests and goals.
+
+  # [STUDENT-EDITABLE] Current project details
+  current_project: "[REPLACE: One sentence describing your main project]"
+
+  # [STUDENT-EDITABLE] Recent presentations (conferences, seminars)
+  presentations:
+    - title: "[REPLACE: Presentation title]"
+      event: "[REPLACE: Conference/seminar name]"
+      date: "[REPLACE: YYYY-MM]"
+      type: "[REPLACE: poster/talk]"
+
+  # [STUDENT-EDITABLE] Recent achievements
+  achievements:
+    - "[REPLACE: Award, publication, or achievement]"
+    - "[REPLACE: Another achievement]"
+
+  # [STUDENT-EDITABLE] Skills and expertise
+  skills:
+    - "[REPLACE: Skill 1, e.g., Python programming]"
+    - "[REPLACE: Skill 2, e.g., Molecular dynamics]"
+    - "[REPLACE: Skill 3]"
+
+  # [STUDENT-EDITABLE] Personal website or links
+  personal_website: "[REPLACE: https://your-website.com or leave blank]"
+  
+  # [STUDENT-EDITABLE] Last updated
+  last_updated: "[REPLACE: YYYY-MM-DD]"
+
+# REMINDER: Only edit [STUDENT-EDITABLE] sections
+# Submit as: my_profile/yourname.yml
