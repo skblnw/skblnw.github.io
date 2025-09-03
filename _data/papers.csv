@@ -1,0 +1,6 @@
+id,title,journal,date,authors,link,doi,preprint_url,preprint_label,image
+1,"Deep Learning for Drug-Target Interaction Prediction: A Comprehensive Review","Nature Machine Intelligence","2024 Jan","Doe J, Smith A, Johnson B","https://doi.org/10.1038/s42256-024-00001","10.1038/s42256-024-00001","https://arxiv.org/abs/2023.12345","arXiv","paper1.jpg"
+2,"Single-Cell RNA Sequencing Reveals Novel Cell Types in Disease","Cell","2023 Dec","Smith A, Wong A, Doe J","https://doi.org/10.1016/j.cell.2023.11.001","10.1016/j.cell.2023.11.001","https://www.biorxiv.org/content/10.1101/2023.09.001","bioRxiv","paper2.jpg"
+3,"Graph Neural Networks for Molecular Property Prediction","Journal of Chemical Information and Modeling","2023 Nov","Johnson B, Brown M, Doe J","https://doi.org/10.1021/acs.jcim.3c00001","10.1021/acs.jcim.3c00001","","","paper3.jpg"
+4,"Interpretable Machine Learning for Genomics","Nature Methods","2023 Oct","Wong A, Doe J","https://doi.org/10.1038/s41592-023-02001","10.1038/s41592-023-02001","https://www.biorxiv.org/content/10.1101/2023.08.001","bioRxiv","paper4.jpg"
+5,"Multi-omics Integration Using Deep Learning","Bioinformatics","2023 Sep","Brown M, Smith A, Johnson B, Doe J","https://doi.org/10.1093/bioinformatics/btad501","10.1093/bioinformatics/btad501","","","paper5.jpg"

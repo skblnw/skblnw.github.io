@@ -1,0 +1,115 @@
+# Lab Members Data File
+# 
+# This file contains information about all lab members (current and alumni)
+# Each person should have a unique identifier (e.g., firstname_lastname)
+#
+# Required fields:
+#   - name: Full name with degree
+#   - type: either "member" (current) or "alumn" (alumni)
+#   - avatar: path to photo (store in /assets/images/people/)
+#
+# Optional but recommended fields:
+#   - email: Contact email
+#   - bio: Short description (keywords, departments)
+#   - bio_long: Full biography (HTML allowed)
+#   - title: Position/title
+#   - ncbi_id: For matching publications (e.g., "Doe J")
+#   - github: GitHub username
+#   - linkedin: LinkedIn username
+#   - twitter: Twitter handle
+#   - google_scholar: Google Scholar ID
+#   - orcid: ORCID ID
+#
+# Example entries below - replace with your actual lab members:
+
+# Principal Investigator
+kevin_chan:
+  name: Kevin Chan, PhD
+  email: Chun.Chan@xjtlu.edu.cn
+  bio: "computational biology; molecular dynamics; machine learning"
+  bio_long: >
+    <p>Kevin is the Principal Investigator of the lab. He received his PhD 
+    from City University of Hong Kong (CityUHK) and 
+    completed postdoctoral training at The Ohio State University (OSU). 
+    His research focuses on developing computational methods 
+    for understanding complex biological systems.</p>
+    <p>Before starting the lab, he worked in Zhejiang University (ZJU) developing machine 
+    learning algorithms for drug discovery. He joined the faculty in 2024.
+    He is also a member of the Center for Intelligent RNA Therapeutics at XJTLU.</p>
+  avatar: /assets/images/people/bio-cc.jpg
+  title: Assistant Professor; Principal Investigator
+  github: skblnw
+  linkedin: kevin-chan
+  google_scholar: XXXXXXXXX
+  orcid: 0000-0000-0000-0000
+  twitter: skblnw
+  ncbi_id: Chan KC
+  type: member
+
+# Example Graduate Student
+jane_smith:
+  name: Jane Smith
+  email: jane.smith@university.edu
+  bio: "bioinformatics; genomics"
+  bio_long: >
+    Jane is a PhD student in the Bioinformatics program. She graduated 
+    from State University with a B.S. in Computer Science and Biology. 
+    Her research focuses on developing methods for analyzing single-cell 
+    sequencing data.
+  avatar: /assets/images/people/bio-smith.jpg
+  title: Graduate Student
+  github: janesmith
+  linkedin: jane-smith
+  ncbi_id: Smith J
+  type: member
+
+# Example Postdoc
+bob_johnson:
+  name: Bob Johnson, PhD
+  email: bob.johnson@university.edu
+  bio: "protein engineering; structural biology"
+  bio_long: >
+    Bob joined the lab as a postdoctoral researcher in 2023 after completing 
+    his PhD at Graduate University. His research combines computational and 
+    experimental approaches to engineer novel proteins.
+  avatar: /assets/images/people/bio-johnson.jpg
+  title: Postdoctoral Researcher
+  github: bobjohnson
+  ncbi_id: Johnson B
+  type: member
+
+# Example Research Assistant
+alice_wong:
+  name: Alice Wong
+  email: alice.wong@university.edu
+  bio: "data analysis; visualization"
+  bio_long: >
+    Alice is a Research Data Analyst who joined the lab after graduating 
+    from Local University with a B.S. in Data Science. She helps manage 
+    the lab's computational infrastructure and develops visualization tools 
+    for biological data.
+  avatar: /assets/images/people/bio-wong.jpg
+  title: Research Data Analyst
+  github: alicewong
+  linkedin: alice-wong
+  type: member
+
+# Example Alumni
+mike_brown:
+  name: Mike Brown, PhD
+  bio: "machine learning; drug discovery"
+  bio_long: >
+    Mike was a PhD student in the lab from 2018-2023. His thesis focused 
+    on deep learning methods for drug-target interaction prediction. He is 
+    now a Senior Scientist at Pharma Company.
+  avatar: /assets/images/people/bio-brown.jpg
+  title: PhD 2023; now Senior Scientist at Pharma Company
+  ncbi_id: Brown M
+  type: alumn
+
+# Add more members following the same format...
+# Remember to:
+# 1. Use unique identifiers (firstname_lastname)
+# 2. Set type to "member" for current members, "alumn" for alumni
+# 3. Add corresponding photos to /assets/images/people/
+# 4. Use ncbi_id for automatic publication matching

@@ -1,0 +1,26 @@
+{% comment %}
+  Display a list of people from the collection
+  Based on Minimal Mistakes archive layout
+{% endcomment %}
+
+{% assign entries = include.entries %}
+
+{% if include.sort_by == 'title' %}
+  {% if include.sort_order == 'reverse' %}
+    {% assign entries = entries | sort: 'title' | reverse %}
+  {% else %}
+    {% assign entries = entries | sort: 'title' %}
+  {% endif %}
+{% elsif include.sort_by == 'date' %}
+  {% if include.sort_order == 'reverse' %}
+    {% assign entries = entries | sort: 'date' | reverse %}
+  {% else %}
+    {% assign entries = entries | sort: 'date' %}
+  {% endif %}
+{% endif %}
+
+{%- for post in entries -%}
+  {%- unless post.hidden -%}
+    {% include people-single.html type=include.type %}
+  {%- endunless -%}
+{%- endfor -%}

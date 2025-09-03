@@ -1,0 +1,144 @@
+name: Validate Student PR
+
+on:
+  pull_request:
+    branches: [ gh-pages, main ]
+    paths:
+      - 'STUDENT_ZONE/**'
+      - '!STUDENT_ZONE/TEMPLATES/**'  # Don't trigger on template changes
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout PR
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Need full history for diff
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+    
+    - name: Run validation script
+      run: |
+        python utils/validate_student_pr.py
+    
+    - name: Check file locations
+      run: |
+        # Ensure no PI_ONLY files are modified
+        if git diff --name-only origin/gh-pages...HEAD | grep -q "^PI_ONLY/"; then
+          echo "❌ Error: Attempting to modify PI_ONLY files!"
+          exit 1
+        fi
+        
+        # Ensure no config files are modified
+        if git diff --name-only origin/gh-pages...HEAD | grep -q "^_config.yml"; then
+          echo "❌ Error: Attempting to modify _config.yml!"
+          exit 1
+        fi
+        
+        echo "✅ File location check passed"
+    
+    - name: Validate YAML syntax
+      run: |
+        for file in $(git diff --name-only origin/gh-pages...HEAD | grep -E '\.(yml|yaml)$'); do
+          if [ -f "$file" ]; then
+            echo "Checking $file..."
+            python -c "import yaml; yaml.safe_load(open('$file'))" || exit 1
+          fi
+        done
+        echo "✅ YAML validation passed"
+    
+    - name: Check image sizes
+      run: |
+        MAX_SIZE=2097152  # 2MB in bytes
+        LARGE_FILES=""
+        
+        for file in $(git diff --name-only origin/gh-pages...HEAD | grep -E '\.(jpg|jpeg|png|gif)$'); do
+          if [ -f "$file" ]; then
+            SIZE=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file" 2>/dev/null || echo 0)
+            if [ "$SIZE" -gt "$MAX_SIZE" ]; then
+              LARGE_FILES="$LARGE_FILES\n$file ($(($SIZE / 1048576))MB)"
+            fi
+          fi
+        done
+        
+        if [ -n "$LARGE_FILES" ]; then
+          echo "❌ Error: Images exceed 2MB limit:"
+          echo -e "$LARGE_FILES"
+          exit 1
+        fi
+        
+        echo "✅ Image size check passed"
+    
+    - name: Check for template markers
+      run: |
+        MARKERS_FOUND=""
+        
+        for file in $(git diff --name-only origin/gh-pages...HEAD | grep -E '\.(md|yml|yaml)$'); do
+          if [ -f "$file" ]; then
+            if grep -q "\[REPLACE" "$file"; then
+              MARKERS_FOUND="$MARKERS_FOUND\n$file"
+            fi
+          fi
+        done
+        
+        if [ -n "$MARKERS_FOUND" ]; then
+          echo "⚠️ Warning: Unfilled template markers found in:"
+          echo -e "$MARKERS_FOUND"
+          echo "Please replace all [REPLACE] markers with actual content"
+          # Don't fail, just warn
+        fi
+    
+    - name: Post validation comment
+      if: always()
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const output = `
+          ## 🤖 Automated PR Validation
+          
+          ${process.env.VALIDATION_PASSED === 'true' ? '✅ **All checks passed!**' : '❌ **Some checks failed**'}
+          
+          ### Checklist:
+          - ${process.env.LOCATION_CHECK === 'true' ? '✅' : '❌'} Files in correct location
+          - ${process.env.YAML_CHECK === 'true' ? '✅' : '❌'} Valid YAML syntax
+          - ${process.env.IMAGE_CHECK === 'true' ? '✅' : '❌'} Images under 2MB
+          - ${process.env.TEMPLATE_CHECK === 'true' ? '✅' : '⚠️'} Template markers replaced
+          
+          ${process.env.VALIDATION_PASSED !== 'true' ? '**Please fix the issues above and push your changes.**' : '**Your PR is ready for review!**'}
+          `;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: output
+          })
+
+  label-pr:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: success()
+    
+    steps:
+    - name: Label PR as student contribution
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.rest.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['student-contribution', 'ready-for-review']
+          })

@@ -1,0 +1,68 @@
+# Publication Suggestion Template
+# Fill this out to suggest a new publication for the website
+# Submit to: STUDENT_ZONE/publication_drafts/
+
+=====================================
+PUBLICATION INFORMATION
+=====================================
+
+Title:
+[REPLACE: Full paper title exactly as published]
+
+Authors:
+[REPLACE: All authors in order, exactly as published]
+
+Journal:
+[REPLACE: Journal name]
+
+Year:
+[REPLACE: YYYY]
+
+Month:
+[REPLACE: Month of publication]
+
+DOI:
+[REPLACE: 10.xxxx/xxxxx]
+
+=====================================
+LINKS
+=====================================
+
+Paper URL:
+[REPLACE: https://doi.org/...]
+
+Preprint (if applicable):
+[REPLACE: arXiv/bioRxiv link or leave blank]
+
+GitHub (if applicable):
+[REPLACE: Code repository or leave blank]
+
+=====================================
+LAB MEMBERS INVOLVED
+=====================================
+
+Lab Authors:
+[REPLACE: List which lab members are authors]
+
+Lead Author from Lab:
+[REPLACE: If applicable]
+
+=====================================
+SUMMARY FOR NEWS POST
+=====================================
+
+One-line summary:
+[REPLACE: Brief description for website listing]
+
+Significance:
+[REPLACE: Why is this work important? 2-3 sentences]
+
+=====================================
+NOTES
+=====================================
+
+Additional Information:
+[REPLACE: Any other relevant details, or leave blank]
+
+Submitted by: [REPLACE: Your name]
+Date: [REPLACE: YYYY-MM-DD]
