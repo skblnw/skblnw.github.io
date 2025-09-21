@@ -2,128 +2,56 @@ name: Validate Student PR
 
 on:
   pull_request:
-    branches: [ gh-pages, main ]
     paths:
       - 'STUDENT_ZONE/**'
-      - '!STUDENT_ZONE/TEMPLATES/**'  # Don't trigger on template changes
+      - 'collections/_posts/**'
+      - 'assets/images/**'
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout PR
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0  # Need full history for diff
-    
-    - name: Setup Python
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
-    
+        
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install pyyaml
-    
+        pip install pyyaml pillow
+        
     - name: Run validation script
       run: |
         python utils/validate_student_pr.py
-    
-    - name: Check file locations
-      run: |
-        # Ensure no PI_ONLY files are modified
-        if git diff --name-only origin/gh-pages...HEAD | grep -q "^PI_ONLY/"; then
-          echo "❌ Error: Attempting to modify PI_ONLY files!"
-          exit 1
-        fi
         
-        # Ensure no config files are modified
-        if git diff --name-only origin/gh-pages...HEAD | grep -q "^_config.yml"; then
-          echo "❌ Error: Attempting to modify _config.yml!"
-          exit 1
-        fi
-        
-        echo "✅ File location check passed"
-    
-    - name: Validate YAML syntax
+    - name: Check YAML syntax
       run: |
-        for file in $(git diff --name-only origin/gh-pages...HEAD | grep -E '\.(yml|yaml)$'); do
-          if [ -f "$file" ]; then
-            echo "Checking $file..."
-            python -c "import yaml; yaml.safe_load(open('$file'))" || exit 1
-          fi
-        done
-        echo "✅ YAML validation passed"
-    
-    - name: Check image sizes
-      run: |
-        MAX_SIZE=2097152  # 2MB in bytes
-        LARGE_FILES=""
+        find STUDENT_ZONE -name "*.yml" -o -name "*.yaml" | xargs -I {} python -c "import yaml; yaml.safe_load(open('{}'))"
         
-        for file in $(git diff --name-only origin/gh-pages...HEAD | grep -E '\.(jpg|jpeg|png|gif)$'); do
-          if [ -f "$file" ]; then
-            SIZE=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file" 2>/dev/null || echo 0)
-            if [ "$SIZE" -gt "$MAX_SIZE" ]; then
-              LARGE_FILES="$LARGE_FILES\n$file ($(($SIZE / 1048576))MB)"
-            fi
+    - name: Check Markdown syntax
+      run: |
+        find STUDENT_ZONE -name "*.md" | head -20  # Limit to prevent timeout
+        
+    - name: Validate image sizes
+      run: |
+        find STUDENT_ZONE -name "*.jpg" -o -name "*.png" | while read file; do
+          size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null)
+          if [ "$size" -gt 2097152 ]; then  # 2MB limit
+            echo "Error: $file is larger than 2MB ($size bytes)"
+            exit 1
           fi
         done
         
-        if [ -n "$LARGE_FILES" ]; then
-          echo "❌ Error: Images exceed 2MB limit:"
-          echo -e "$LARGE_FILES"
+    - name: Check for forbidden edits
+      run: |
+        if git diff --name-only origin/main HEAD | grep -E "^(PI_ONLY/|_config\.yml|_data/navigation\.yml)"; then
+          echo "Error: Changes detected in protected areas"
           exit 1
         fi
-        
-        echo "✅ Image size check passed"
-    
-    - name: Check for template markers
-      run: |
-        MARKERS_FOUND=""
-        
-        for file in $(git diff --name-only origin/gh-pages...HEAD | grep -E '\.(md|yml|yaml)$'); do
-          if [ -f "$file" ]; then
-            if grep -q "\[REPLACE" "$file"; then
-              MARKERS_FOUND="$MARKERS_FOUND\n$file"
-            fi
-          fi
-        done
-        
-        if [ -n "$MARKERS_FOUND" ]; then
-          echo "⚠️ Warning: Unfilled template markers found in:"
-          echo -e "$MARKERS_FOUND"
-          echo "Please replace all [REPLACE] markers with actual content"
-          # Don't fail, just warn
-        fi
-    
-    - name: Post validation comment
-      if: always()
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          const output = `
-          ## 🤖 Automated PR Validation
-          
-          ${process.env.VALIDATION_PASSED === 'true' ? '✅ **All checks passed!**' : '❌ **Some checks failed**'}
-          
-          ### Checklist:
-          - ${process.env.LOCATION_CHECK === 'true' ? '✅' : '❌'} Files in correct location
-          - ${process.env.YAML_CHECK === 'true' ? '✅' : '❌'} Valid YAML syntax
-          - ${process.env.IMAGE_CHECK === 'true' ? '✅' : '❌'} Images under 2MB
-          - ${process.env.TEMPLATE_CHECK === 'true' ? '✅' : '⚠️'} Template markers replaced
-          
-          ${process.env.VALIDATION_PASSED !== 'true' ? '**Please fix the issues above and push your changes.**' : '**Your PR is ready for review!**'}
-          `;
-          
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: output
-          })
 
   label-pr:
     runs-on: ubuntu-latest

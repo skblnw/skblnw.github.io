@@ -102,10 +102,7 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
-  - STUDENT_ZONE
-  - PI_ONLY
-  - WORKFLOWS
-  - utils
+  - ARCHIVE
 keep_files:
   - .git
   - .svn
@@ -171,12 +168,8 @@ compress_html:
   ignore:
     envs: development
 
-# Collections
-collections_dir: collections
+# Collections (simplified)
 collections:
-  people:
-    output: true
-    permalink: /:collection/:path/
   posts:
     output: true
     permalink: /news/:year/:month/:day/:title/
@@ -201,11 +194,3 @@ defaults:
     values:
       layout: single
       author_profile: false
-  # _people
-  - scope:
-      path: ""
-      type: people
-    values:
-      layout: single
-      author_profile: false
-      share: true

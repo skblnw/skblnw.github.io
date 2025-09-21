@@ -1,0 +1,33 @@
+# Lab Website Code Owners
+# This file defines who must review changes to specific parts of the repository
+
+# Critical site configuration - PI only
+/_config.yml @skblnw
+/index.markdown @skblnw
+
+# Protected directories - PI only
+/PI_ONLY/ @skblnw
+/_data/navigation.yml @skblnw
+/_data/authors.yml @skblnw
+
+# Core pages - PI only  
+/_pages/home.md @skblnw
+/_pages/research.md @skblnw
+/_pages/contact.md @skblnw
+
+# Utilities and workflows - PI approval required
+/utils/ @skblnw
+/WORKFLOWS/ @skblnw
+
+# Student zones - can be reviewed by senior students or PI
+/STUDENT_ZONE/ @skblnw
+/collections/_posts/ @skblnw
+
+# Collaborative areas - lighter review process
+/assets/images/people/ @skblnw
+/collections/_people/ @skblnw
+
+# Documentation - PI approval for major changes
+/README.md @skblnw
+/LAB_WEBSITE_GUIDE.md @skblnw
+/COLLABORATIVE_SYSTEM_OVERVIEW.md @skblnw
