@@ -1,5 +1,5 @@
 ---
-title: team
+title: people
 permalink: /people/
 excerpt: "Current lab members and alumni."
 tags: [members, people, team]
