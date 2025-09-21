@@ -34,7 +34,7 @@ intro:
             <span itemprop="name">{{ paper.title }}</span>
           </h3>
           
-          <div class="archive__item-excerpt" style="margin-top:0.25em; margin-bottom:0.25em;">
+          <div class="archive__item-excerpt">
             <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
               <strong>{{ paper.journal }}</strong>
             </span>. 

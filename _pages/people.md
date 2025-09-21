@@ -22,27 +22,27 @@ layout: single
     </div>
 
     <div class="col-sm-8">
-        <h4 style="font-size: 1.5rem;">{{ member.name }}</h4>
-        <p style="font-size: 1.1rem;">{{ member.title }}</p>
+        <h4>{{ member.name }}</h4>
+        <p>{{ member.title }}</p>
 
-        {% if member.email %}<i class="fa fa-envelope"></i> <em style="font-size: 0.95rem;">{{ member.email }}</em> <br>{% endif %}
+        {% if member.email %}<i class="fa fa-envelope"></i> <em>{{ member.email }}</em> <br>{% endif %}
         {% if member.twitter %}
-          <i class="fab fa-twitter"></i> <a href="http://twitter.com/{{ member.twitter }}" target="_blank" rel="external nofollow noopener" style="font-size: 0.95rem;"> @{{ member.twitter }} </a> <br>
+          <i class="fab fa-twitter"></i> <a href="http://twitter.com/{{ member.twitter }}" target="_blank" rel="external nofollow noopener"> @{{ member.twitter }} </a> <br>
         {% endif %}
         {% if member.github %}
-          <i class="fab fa-github"></i> <a href="https://github.com/{{ member.github }}" target="_blank" rel="external nofollow noopener" style="font-size: 0.95rem;">GitHub</a> <br>
+          <i class="fab fa-github"></i> <a href="https://github.com/{{ member.github }}" target="_blank" rel="external nofollow noopener">GitHub</a> <br>
         {% endif %}
         {% if member.linkedin %}
-          <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/{{ member.linkedin }}" target="_blank" rel="external nofollow noopener" style="font-size: 0.95rem;">LinkedIn</a> <br>
+          <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/{{ member.linkedin }}" target="_blank" rel="external nofollow noopener">LinkedIn</a> <br>
         {% endif %}
         {% if member.google_scholar %}
-          <i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" target="_blank" rel="external nofollow noopener" style="font-size: 0.95rem;">Google Scholar</a> <br>
+          <i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" target="_blank" rel="external nofollow noopener">Google Scholar</a> <br>
         {% endif %}
         {% if member.orcid %}
-          <i class="fab fa-orcid"></i> <a href="https://orcid.org/{{ member.orcid }}" target="_blank" rel="external nofollow noopener" style="font-size: 0.95rem;">ORCID</a> <br>
+          <i class="fab fa-orcid"></i> <a href="https://orcid.org/{{ member.orcid }}" target="_blank" rel="external nofollow noopener">ORCID</a> <br>
         {% endif %}
         
-        <p class="text-justify" style="font-size: 0.8rem; line-height: 1.5;">
+        <p class="text-justify">
         {% if member.bio_long %}
           {{ member.bio_long }}
         {% elsif member.bio %}
