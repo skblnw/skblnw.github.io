@@ -10,9 +10,9 @@ layout: single
 
 ## Current Members
 
-{% assign members = site.data.authors | where: 'type', 'member' %}
-{% for member_hash in members %}
-  {% assign member = member_hash[1] %}
+{% for member_data in site.data.authors %}
+  {% assign member = member_data[1] %}
+  {% if member.type == 'member' %}
   <div class="person-card" style="display: flex; margin-bottom: 2em; border-bottom: 1px solid #eee; padding-bottom: 1em;">
     <div style="flex: 0 0 150px; margin-right: 20px;">
       {% if member.avatar %}
@@ -33,13 +33,14 @@ layout: single
       </p>
     </div>
   </div>
+  {% endif %}
 {% endfor %}
 
 ## Alumni
 
-{% assign alumni = site.data.authors | where: 'type', 'alumn' %}
-{% for alumni_hash in alumni %}
-  {% assign alum = alumni_hash[1] %}
+{% for alumni_data in site.data.authors %}
+  {% assign alum = alumni_data[1] %}
+  {% if alum.type == 'alumn' %}
   <div class="person-card" style="display: flex; margin-bottom: 2em; border-bottom: 1px solid #eee; padding-bottom: 1em;">
     <div style="flex: 0 0 150px; margin-right: 20px;">
       {% if alum.avatar %}
@@ -53,4 +54,5 @@ layout: single
       {% if alum.bio_long %}<div>{{ alum.bio_long }}</div>{% endif %}
     </div>
   </div>
+  {% endif %}
 {% endfor %}
