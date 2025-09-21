@@ -26,7 +26,7 @@
 kevin_chan:
   name: Kevin Chan, PhD
   email: Chun.Chan@xjtlu.edu.cn
-  bio: "computational biology; molecular dynamics; machine learning"
+  bio: "structural bioinformatics; molecular dynamics; machine learning"
   bio_long: >
     <p>Kevin is the Principal Investigator of the lab. He received his PhD 
     from City University of Hong Kong (CityUHK) and 
@@ -39,72 +39,42 @@ kevin_chan:
   avatar: /assets/images/people/bio-cc.jpg
   title: Assistant Professor; Principal Investigator
   github: skblnw
-  linkedin: kevin-chan
-  google_scholar: XXXXXXXXX
-  orcid: 0000-0000-0000-0000
-  twitter: skblnw
-  ncbi_id: Chan KC
+  google_scholar: rSZrshkAAAAJ&hl=en
+  orcid: 0000-0002-3705-1835
   type: member
 
-# Example Graduate Student
-jane_smith:
-  name: Jane Smith
-  email: jane.smith@university.edu
-  bio: "bioinformatics; genomics"
-  bio_long: >
-    Jane is a PhD student in the Bioinformatics program. She graduated 
-    from State University with a B.S. in Computer Science and Biology. 
-    Her research focuses on developing methods for analyzing single-cell 
-    sequencing data.
-  avatar: /assets/images/people/bio-smith.jpg
-  title: Graduate Student
-  github: janesmith
-  linkedin: jane-smith
-  ncbi_id: Smith J
-  type: member
 
-# Example Postdoc
-bob_johnson:
-  name: Bob Johnson, PhD
-  email: bob.johnson@university.edu
-  bio: "protein engineering; structural biology"
-  bio_long: >
-    Bob joined the lab as a postdoctoral researcher in 2023 after completing 
-    his PhD at Graduate University. His research combines computational and 
-    experimental approaches to engineer novel proteins.
-  avatar: /assets/images/people/bio-johnson.jpg
-  title: Postdoctoral Researcher
-  github: bobjohnson
-  ncbi_id: Johnson B
-  type: member
-
-# Example Research Assistant
-alice_wong:
-  name: Alice Wong
-  email: alice.wong@university.edu
+# Example Lab Manager/Technician
+qiujie_zhu:
+  name: Qiujie Zhu
+  email: Qiujie.Zhu@xjtlu.edu.cn
   bio: "data analysis; visualization"
   bio_long: >
-    Alice is a Research Data Analyst who joined the lab after graduating 
-    from Local University with a B.S. in Data Science. She helps manage 
-    the lab's computational infrastructure and develops visualization tools 
-    for biological data.
+    Qiujie is our lab manager who joined the lab with an M.S. in Bioinformatics. 
+    She helps manage the lab's computational infrastructure and provides 
+    support to our lab members.
   avatar: /assets/images/people/bio-wong.jpg
-  title: Research Data Analyst
-  github: alicewong
-  linkedin: alice-wong
+  title: Lab Manager/Technician
   type: member
 
-# Example Alumni
-mike_brown:
-  name: Mike Brown, PhD
-  bio: "machine learning; drug discovery"
+
+# Example Student
+xxx_yyy:
+  name: xxx_yyy
+  email: xxx@xjtlu.edu.cn
+  bio: "bioinformatics; genomics"
   bio_long: >
-    Mike was a PhD student in the lab from 2018-2023. His thesis focused 
-    on deep learning methods for drug-target interaction prediction. He is 
-    now a Senior Scientist at Pharma Company.
-  avatar: /assets/images/people/bio-brown.jpg
-  title: PhD 2023; now Senior Scientist at Pharma Company
-  ncbi_id: Brown M
+    XX is a student in the Bioinformatics program. 
+  avatar: /assets/images/people/bio-smith.jpg
+  title: Student
+  type: member
+
+
+# Example Alumni
+xxx_zzz:
+  name: xxx_zzz
+  title: PhD 2023
+  current_position:  Scientist at Pharma 
   type: alumn
 
 # Add more members following the same format...

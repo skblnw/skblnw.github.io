@@ -16,11 +16,17 @@ john_doe:                              # Unique ID (firstname_lastname)
   avatar: /assets/images/people/bio-doe.jpg  # Photo path
   title: "PhD Student"                # Position title
   type: member                        # Use "member" or "alumn"
-  github: johndoe                     # Optional: GitHub username
-  linkedin: john-doe                  # Optional: LinkedIn
-  google_scholar: ABC123              # Optional: Scholar ID
-  orcid: 0000-0000-0000-0000         # Optional: ORCID
+  
+  # Optional fields:
+  github: johndoe                     # GitHub username
+  linkedin: john-doe                  # LinkedIn username
+  twitter: johndoe                    # Twitter handle (without @)
+  google_scholar: ABC123              # Google Scholar ID
+  orcid: 0000-0000-0000-0000         # ORCID ID
   ncbi_id: "Doe J"                   # For matching publications
+  
+  # For alumni only:
+  current_position: "Scientist at Company"  # Current job (alumni only)
 ```
 
 **Don't forget:** Add their photo to `/assets/images/people/bio-lastname.jpg` (400x400px)

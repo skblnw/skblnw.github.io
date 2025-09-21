@@ -8,51 +8,61 @@ comments: false
 layout: single
 ---
 
-## Current Members
-
 {% for member_data in site.data.authors %}
   {% assign member = member_data[1] %}
   {% if member.type == 'member' %}
-  <div class="person-card" style="display: flex; margin-bottom: 2em; border-bottom: 1px solid #eee; padding-bottom: 1em;">
-    <div style="flex: 0 0 150px; margin-right: 20px;">
-      {% if member.avatar %}
-        <img src="{{ member.avatar }}" alt="{{ member.name }}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
-      {% endif %}
+<!-- The paddingtop and margin-top edits allow anchors to link properly. -->
+<div id="{{ member.name | replace: ' ', '-' | replace: '.', '' | replace: ',', '' }}" class="row" style="padding-top: 60px; margin-top: -60px; padding-left: 10px">
+    <div class="col-sm-3">
+        <figure>
+            {% if member.avatar %}
+            <img src="{{ member.avatar }}" class="img-fluid z-depth-1 rounded-circle" width="auto" height="auto" alt="{{ member.name }}">
+            {% endif %}
+        </figure>
     </div>
-    <div style="flex: 1;">
-      <h3 style="margin-top: 0;">{{ member.name }}</h3>
-      <p><strong>{{ member.title }}</strong></p>
-      {% if member.bio %}<p><em>{{ member.bio }}</em></p>{% endif %}
-      {% if member.bio_long %}<div>{{ member.bio_long }}</div>{% endif %}
-      <p>
-        {% if member.email %}<a href="mailto:{{ member.email }}">Email</a> • {% endif %}
-        {% if member.github %}<a href="https://github.com/{{ member.github }}">GitHub</a> • {% endif %}
-        {% if member.linkedin %}<a href="https://linkedin.com/in/{{ member.linkedin }}">LinkedIn</a> • {% endif %}
-        {% if member.google_scholar %}<a href="https://scholar.google.com/citations?user={{ member.google_scholar }}">Scholar</a> • {% endif %}
-        {% if member.orcid %}<a href="https://orcid.org/{{ member.orcid }}">ORCID</a>{% endif %}
-      </p>
+
+    <div class="col-sm-8">
+        <h4>{{ member.name }}</h4>
+        <p>{{ member.title }}</p>
+
+        {% if member.email %}<i class="fa fa-envelope"></i> <em>{{ member.email }}</em> <br>{% endif %}
+        {% if member.twitter %}
+          <i class="fab fa-twitter"></i> <a href="http://twitter.com/{{ member.twitter }}" target="_blank" rel="external nofollow noopener"> @{{ member.twitter }} </a> <br>
+        {% endif %}
+        {% if member.github %}
+          <i class="fab fa-github"></i> <a href="https://github.com/{{ member.github }}" target="_blank" rel="external nofollow noopener">GitHub</a> <br>
+        {% endif %}
+        {% if member.linkedin %}
+          <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/{{ member.linkedin }}" target="_blank" rel="external nofollow noopener">LinkedIn</a> <br>
+        {% endif %}
+        {% if member.google_scholar %}
+          <i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" target="_blank" rel="external nofollow noopener">Google Scholar</a> <br>
+        {% endif %}
+        {% if member.orcid %}
+          <i class="fab fa-orcid"></i> <a href="https://orcid.org/{{ member.orcid }}" target="_blank" rel="external nofollow noopener">ORCID</a> <br>
+        {% endif %}
+        
+        <p class="text-justify">
+        {% if member.bio_long %}
+          {{ member.bio_long }}
+        {% elsif member.bio %}
+          {{ member.bio }}
+        {% endif %}
+        </p>
     </div>
-  </div>
+</div>
+<hr>
   {% endif %}
 {% endfor %}
 
-## Alumni
+<h2 id="alumni">Alumni</h2>
 
 {% for alumni_data in site.data.authors %}
   {% assign alum = alumni_data[1] %}
   {% if alum.type == 'alumn' %}
-  <div class="person-card" style="display: flex; margin-bottom: 2em; border-bottom: 1px solid #eee; padding-bottom: 1em;">
-    <div style="flex: 0 0 150px; margin-right: 20px;">
-      {% if alum.avatar %}
-        <img src="{{ alum.avatar }}" alt="{{ alum.name }}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
-      {% endif %}
-    </div>
-    <div style="flex: 1;">
-      <h3 style="margin-top: 0;">{{ alum.name }}</h3>
-      <p><strong>{{ alum.title }}</strong></p>
-      {% if alum.bio %}<p><em>{{ alum.bio }}</em></p>{% endif %}
-      {% if alum.bio_long %}<div>{{ alum.bio_long }}</div>{% endif %}
-    </div>
-  </div>
+<p><strong>{{ alum.name }}</strong> <br>
+<i>previously:</i> {{ alum.title }} <br>
+{% if alum.current_position %}<i>currently:</i> {{ alum.current_position }} <br>{% endif %}
+</p>
   {% endif %}
 {% endfor %}
