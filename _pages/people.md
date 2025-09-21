@@ -42,7 +42,7 @@ layout: single
           <i class="fab fa-orcid"></i> <a href="https://orcid.org/{{ member.orcid }}" target="_blank" rel="external nofollow noopener" style="font-size: 0.95rem;">ORCID</a> <br>
         {% endif %}
         
-        <p class="text-justify" style="font-size: 1rem; line-height: 1.5;">
+        <p class="text-justify" style="font-size: 0.8rem; line-height: 1.5;">
         {% if member.bio_long %}
           {{ member.bio_long }}
         {% elsif member.bio %}
