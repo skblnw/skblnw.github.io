@@ -27,14 +27,14 @@ kevin_chan:
   name: Kevin Chan, PhD
   email: Chun.Chan[at]xjtlu.edu.cn
   bio_long: >
-    <p>Kevin is the Principal Investigator of the lab. He received his PhD 
+    Kevin is the Principal Investigator of the lab. He received his PhD 
     from City University of Hong Kong (CityUHK) and 
     completed postdoctoral training at The Ohio State University (OSU). 
     His research focuses on developing computational methods 
-    for understanding complex biological systems.</p>
-    <p>Before starting the lab, he worked in Zhejiang University (ZJU) developing machine 
+    for understanding complex biological systems.
+    Before starting the lab, he worked in Zhejiang University (ZJU) developing machine 
     learning algorithms for drug discovery. He joined the faculty in 2024.
-    He is also a member of the Center for Intelligent RNA Therapeutics at XJTLU.</p>
+    He is also a member of the Center for Intelligent RNA Therapeutics at XJTLU.
   avatar: /assets/images/people/bio-cc.jpg
   title: Assistant Professor; Principal Investigator
   github: skblnw
