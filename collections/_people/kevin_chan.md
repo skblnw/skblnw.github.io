@@ -21,7 +21,5 @@ Email: [Chun.Chan@xjtlu.edu.cn](mailto:Chun.Chan@xjtlu.edu.cn)
 
 
 [GitHub](https://github.com/skblnw)
-[LinkedIn](https://linkedin.com/in/kevin-chan)
-[Twitter](https://twitter.com/skblnw)
-[Google Scholar](https://scholar.google.com/citations?user=XXXXXXXXX)
-[ORCID](https://orcid.org/0000-0000-0000-0000)
+[Google Scholar](https://scholar.google.com/citations?user=rSZrshkAAAAJ&hl=en)
+[ORCID](https://orcid.org/0000-0002-3705-1835)
