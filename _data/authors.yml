@@ -25,8 +25,7 @@
 # Principal Investigator
 kevin_chan:
   name: Kevin Chan, PhD
-  email: Chun.Chan@xjtlu.edu.cn
-  bio: "structural bioinformatics; molecular dynamics; machine learning"
+  email: Chun.Chan[at]xjtlu.edu.cn
   bio_long: >
     <p>Kevin is the Principal Investigator of the lab. He received his PhD 
     from City University of Hong Kong (CityUHK) and 
@@ -47,8 +46,7 @@ kevin_chan:
 # Example Lab Manager/Technician
 qiujie_zhu:
   name: Qiujie Zhu
-  email: Qiujie.Zhu@xjtlu.edu.cn
-  bio: "data analysis; visualization"
+  email: Qiujie.Zhu[at]xjtlu.edu.cn
   bio_long: >
     Qiujie is our lab manager who joined the lab with an M.S. in Bioinformatics. 
     She helps manage the lab's computational infrastructure and provides 
@@ -62,7 +60,6 @@ qiujie_zhu:
 xxx_yyy:
   name: xxx_yyy
   email: xxx@xjtlu.edu.cn
-  bio: "bioinformatics; genomics"
   bio_long: >
     XX is a student in the Bioinformatics program. 
   avatar: /assets/images/people/bio-smith.jpg
@@ -73,8 +70,8 @@ xxx_yyy:
 # Example Alumni
 xxx_zzz:
   name: xxx_zzz
-  title: PhD 2023
-  current_position:  Scientist at Pharma 
+  title: FYP 2024-2025
+  current_position:  M.S. at 
   type: alumn
 
 # Add more members following the same format...
