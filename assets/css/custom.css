@@ -1,0 +1,14 @@
+/* Lightweight grid utilities to support .row and .col-md-* used on people page */
+.people-page .row { display: flex; flex-wrap: wrap; margin-left: -20px; margin-right: -20px; }
+.people-page .col-12, .people-page .col-md-3, .people-page .col-md-9 { width: 100%; padding-left: 20px; padding-right: 20px; }
+@media (min-width: 768px) {
+  .people-page .col-md-3 { width: 25%; }
+  .people-page .col-md-9 { width: 75%; }
+  /* Larger profile image and slightly smaller content text on desktop */
+  .people-page .img-fluid.rounded-circle { max-width: 660px; }
+  .people-page .col-md-9 { font-size: 0.55em; }
+}
+
+/* Optional helpers for classes referenced but not in theme */
+.img-fluid { max-width: 100%; height: auto; }
+.rounded-circle { border-radius: 50%; }
