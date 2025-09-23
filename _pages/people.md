@@ -12,16 +12,16 @@ layout: single
   {% assign member = member_data[1] %}
   {% if member.type == 'member' %}
 <!-- The paddingtop and margin-top edits allow anchors to link properly. -->
-<div id="{{ member.name | replace: ' ', '-' | replace: '.', '' | replace: ',', '' }}" class="row" style="padding-top: 60px; margin-top: -60px; padding-left: 10px">
-    <div class="col-sm-3">
-        <figure>
+<div id="{{ member.name | replace: ' ', '-' | replace: '.', '' | replace: ',', '' }}" class="row" style="padding-top: 60px; margin-top: -60px; padding-left: 10px; display: flex; align-items: flex-start;">
+    <div class="col-sm-4" style="display: flex; justify-content: center; padding-right: 20px;">
+        <figure style="margin: 0;">
             {% if member.avatar %}
-            <img src="{{ member.avatar }}" class="img-fluid z-depth-1 rounded-circle" width="auto" height="auto" alt="{{ member.name }}">
+            <img src="{{ member.avatar }}" class="img-fluid z-depth-1 rounded-circle" width="200" height="200" alt="{{ member.name }}" style="object-fit: cover;">
             {% endif %}
         </figure>
     </div>
 
-    <div class="col-sm-8">
+    <div class="col-sm-8" style="padding-left: 0;">
         <h2 style="font-size: 1.75rem; font-weight: 400; margin-bottom: 0.5rem;">{{ member.name }}</h2>
         <p style="font-size: 1rem; color: #666; margin-bottom: 1rem;">{{ member.title }}</p>
 
